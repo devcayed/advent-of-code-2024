@@ -18,9 +18,7 @@ partOne = withFile "./Input.txt" ReadMode (hGetContents >=>
 partTwo :: IO ()
 partTwo = withFile "./Input.txt" ReadMode (hGetContents >=>
     print . sum
-          . (\ (xs, ys) -> fmap (\ x -> (* x)
-          . length
-          . filter (== x) $ ys) xs)
+          . (\ (xs, ys) -> fmap (\ x -> (* x) . length . filter (== x) $ ys) xs)
           . unzip
           . fmap ((\ [x, y] -> (read x, read y)) . words)
           . lines)
